@@ -1,0 +1,21 @@
+spring:
+  application:
+    name: pacselector-service
+
+  datasource:
+    url: jdbc:oracle:thin:@localhost:1521:orcl
+    username: SYSTEM
+    password: c3_7f-iqQos3
+    driver-class-name: oracle.jdbc.OracleDriver
+    hikari:
+      maximum-pool-size: 10
+
+  jpa:
+    show-sql: true
+    # ddl-auto: update  # Hibernate actualiza la BD automáticamente
+
+server:
+  port: 8001
+  servlet:
+    session:
+      timeout: 30m	
