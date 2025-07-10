@@ -1,6 +1,7 @@
 package mx.santander.pacselector.service;
 
 import mx.santander.pacselector.dto.request.RequestSelladoDTO;
+import mx.santander.pacselector.dto.request.RequestTimbradoDTO;
 
 
 /**
@@ -13,6 +14,6 @@ public interface IServiceComprobante {
     /**
      * Descripcion : Realiza el timbrado del cfdi y lo almacena en ondemand.
      */
-    void timbrarGuardarCFDI(RequestSelladoDTO request);
+	RequestTimbradoDTO timbrarGuardarCFDI(RequestSelladoDTO request);
     
 }

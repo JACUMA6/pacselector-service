@@ -20,7 +20,6 @@ import mx.santander.pacselector.enums.OperacionAuditoria;
 import mx.santander.pacselector.exceptions.ExceptionDataAccess;
 import mx.santander.pacselector.service.DAOOndemand;
 import mx.santander.pacselector.service.IServiceComprobante;
-import mx.santander.pacselector.service.IServicePac;
 import mx.santander.pacselector.service.PacComplementService;
 import mx.santander.pacselector.utils.ConstantesBita;
 import mx.santander.pacselector.utils.Constants;
@@ -39,7 +38,7 @@ public class ServiceComprobanteImpl implements IServiceComprobante {
 	
 
 	@Override
-    public void timbrarGuardarCFDI(RequestSelladoDTO request) {
+    public RequestTimbradoDTO timbrarGuardarCFDI(RequestSelladoDTO request) {
         String threadName = Thread.currentThread().getName();
         long threadId = Thread.currentThread().getId();
         String idPeticion = request.getIdPeticion();
@@ -48,7 +47,7 @@ public class ServiceComprobanteImpl implements IServiceComprobante {
 
 
         ResponseAplicadoDTO result = new ResponseAplicadoDTO();
-        RequestTimbradoDTO response = new RequestTimbradoDTO();
+        RequestTimbradoDTO response = null;
 
         try {
             // 1. Actualiza el PAC asociado a la factura
@@ -91,6 +90,7 @@ public class ServiceComprobanteImpl implements IServiceComprobante {
         }
 
         log.info("timbrarGuardarCFDI ------------------------- END");
+		return response;
     }
 	
 	/**
